@@ -185,7 +185,7 @@ npm run preview      # 本地预览构建产物
 
 | 分支 | 内容 | 作用 |
 |---|---|---|
-| `main` | 完整源码 + 文档 | 仓库门面、代码评审入口 |
+| `main` | 完整源码 + 文档 | 仓库门面、在线入口 |
 | `gh-pages` | `vite build` 产物 | Pages 静态服务源，启用「Deploy from branch」 |
 
 更新线上 = 本地 `npm run build` 后，通过 `deploy-api.ps1` 将 `dist/` 推送到 `gh-pages` 分支（走 GitHub Contents API），约 1 分钟后自动生效，**域名始终为** `https://zzzgl-star.github.io/weekend-city-guide/`。
