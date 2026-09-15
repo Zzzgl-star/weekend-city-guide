@@ -1,0 +1,217 @@
+import type { Activity, ActivityType } from '../types'
+
+export const ACTIVITY_TYPES: ActivityType[] = [
+  '展览', '市集', '演出', '徒步', '运动', '桌游', '咖啡', '手作',
+]
+
+export const SLOT_LABELS: Record<string, string> = {
+  sat_am: '周六上午',
+  sat_pm: '周六下午',
+  sat_eve: '周六晚间',
+  sun_am: '周日上午',
+  sun_pm: '周日下午',
+  sun_eve: '周日傍晚',
+}
+
+export const COVER_GRADIENTS: Record<string, string> = {
+  teal: 'from-emerald-400 to-teal-500',
+  orange: 'from-amber-400 to-orange-500',
+  purple: 'from-violet-400 to-purple-500',
+  blue: 'from-sky-400 to-blue-500',
+  pink: 'from-pink-400 to-rose-500',
+  green: 'from-lime-400 to-green-500',
+  indigo: 'from-indigo-400 to-indigo-600',
+  red: 'from-red-400 to-red-600',
+}
+
+// 昆明本地活动 mock 数据（20 条），距市中心（翠湖）的距离为估算值
+export const ACTIVITIES: Activity[] = [
+  // ── 展览 4 ──
+  {
+    id: 'a01', title: '青铜里的云南 — 省博特展', type: '展览', emoji: '🏛️',
+    venue: '云南省博物馆', address: '官渡区广福路 6393 号',
+    slots: ['sat_am', 'sat_pm', 'sun_am', 'sun_pm'], price: 0, indoor: true,
+    distanceKm: 8, popularity: 82, tags: ['免费', '人文历史', '打卡'],
+    description: '古滇国青铜器真品集中展出，牛虎铜案必看。讲解器 20 元，周末有人工免费讲解场。',
+    transport: '地铁 1 号线星耀路站步行 10 分钟', tips: '带身份证换票；馆内可拍照别开闪光灯。',
+    cover: 'teal', maxTeam: 4,
+  },
+  {
+    id: 'a02', title: '「山湖之间」当代艺术展', type: '展览', emoji: '🖼️',
+    venue: 'CGK 昆明当代美术馆', address: '西山区公园 1903 凯旋门旁',
+    slots: ['sat_pm', 'sat_eve', 'sun_pm'], price: 60, indoor: true,
+    distanceKm: 11, popularity: 76, tags: ['出片', '小众', '约会'],
+    description: '以滇池与山脉为线索的在地艺术家群展，落地窗外就是欧式小镇建筑群，看展+拍照一站式。',
+    transport: '地铁 3 西部客运站转打车 10 分钟', tips: '周末下午人多，建议上午或傍晚前往。',
+    cover: 'purple', maxTeam: 4,
+  },
+  {
+    id: 'a03', title: '「版画云南」年度版画展', type: '展览', emoji: '🎨',
+    venue: '云南美术馆', address: '五华区青年路 371 号',
+    slots: ['sat_am', 'sat_pm', 'sun_am'], price: 0, indoor: true,
+    distanceKm: 1, popularity: 64, tags: ['免费', '艺术', '小众'],
+    description: '云南版画在全国独树一帜，绝版木刻色彩浓烈，展厅安静适合慢慢看。',
+    transport: '地铁 3 号线五一路站步行 8 分钟', tips: '周一闭馆；楼下文创店可盖纪念章。',
+    cover: 'blue', maxTeam: 3,
+  },
+  {
+    id: 'a04', title: '百年讲武堂史料展', type: '展览', emoji: '🏯',
+    venue: '云南陆军讲武堂历史博物馆', address: '五华区翠湖西路 22 号',
+    slots: ['sat_am', 'sat_pm', 'sun_am', 'sun_pm'], price: 0, indoor: true,
+    distanceKm: 0.5, popularity: 88, tags: ['免费', '历史', '翠湖'],
+    description: '黄色走马转角楼本身就很出片，朱德、叶剑英的母校，看完顺路环翠湖散步喂鸥。',
+    transport: '公交 100 路 / 地铁 3 号线潘家湾站步行 12 分钟', tips: '上午有换岗仪式表演，别错过。',
+    cover: 'orange', maxTeam: 4,
+  },
+  // ── 市集 3 ──
+  {
+    id: 'a05', title: '翠湖周末创意市集', type: '市集', emoji: '🎪',
+    venue: '翠湖公园南门广场', address: '五华区翠湖南路',
+    slots: ['sat_am', 'sat_pm', 'sun_am', 'sun_pm'], price: 0, indoor: false,
+    distanceKm: 0.5, popularity: 90, tags: ['免费', '手作摊', '海鸥'],
+    description: '银饰、干花、咖啡车、手作皮具小摊一排排，逛完直接环湖看红嘴鸥。',
+    transport: '地铁 3 号线潘家湾站步行 12 分钟', tips: '晴天去最舒服，带点坚果喂海鸥。',
+    cover: 'green', maxTeam: 6,
+  },
+  {
+    id: 'a06', title: '南强街夜市 · 烟火昆明', type: '市集', emoji: '🏮',
+    venue: '南强街巷', address: '五华区南强街（金马碧鸡坊旁）',
+    slots: ['sat_eve', 'sun_eve'], price: 50, indoor: false,
+    distanceKm: 2, popularity: 94, tags: ['美食', '夜生活', '老街'],
+    description: '老宅院里的深夜食堂：烤豆腐、小锅米线、炸洋芋、木瓜水，一条街吃遍昆明小吃。',
+    transport: '地铁 3 号线东风广场站步行 10 分钟', tips: '人均 50 能吃到扶墙，周末人多早去占桌。',
+    cover: 'red', maxTeam: 6,
+  },
+  {
+    id: 'a07', title: 'M60 文创园跳蚤市集', type: '市集', emoji: '🧺',
+    venue: '秘境 M60 创意园', address: '五华区普吉路 60 号',
+    slots: ['sat_pm', 'sun_pm'], price: 20, indoor: false,
+    distanceKm: 6, popularity: 58, tags: ['二手', '淘货', '文艺'],
+    description: '旧物、黑胶、独立设计小摊，园区本身就是老厂房改造，随手一拍都是工业风。',
+    transport: '公交 1 路至麻园站', tips: '可以带自己的旧物来摆摊，报名费 20。',
+    cover: 'indigo', maxTeam: 5,
+  },
+  // ── 演出 3 ──
+  {
+    id: 'a08', title: '独立乐队联合专场', type: '演出', emoji: '🎸',
+    venue: 'MAO Livehouse 昆明', address: '西山区滇池路南亚风情第壹城',
+    slots: ['sat_eve'], price: 120, indoor: true,
+    distanceKm: 7, popularity: 86, tags: ['现场', '夜场', '摇滚'],
+    description: '三支云南本土乐队联演，民谣到后摇，现场氛围拉满，散场后可去隔壁吃宵夜。',
+    transport: '地铁 2 号线市博物馆站步行 8 分钟', tips: '全程站票，耳塞自备；未满 18 不能入场。',
+    cover: 'red', maxTeam: 4,
+  },
+  {
+    id: 'a09', title: '久石让 × 宫崎骏视听音乐会', type: '演出', emoji: '🎻',
+    venue: '云南省大剧院', address: '官渡区广福路与珥季路交汇处',
+    slots: ['sun_pm'], price: 180, indoor: true,
+    distanceKm: 10, popularity: 78, tags: ['古典', '亲子', '视听'],
+    description: '大屏同步动画画面 + 交响乐团现场演奏《天空之城》《千与千寻》全系列曲目。',
+    transport: '地铁 1 号线珥季路站步行 6 分钟', tips: '穿正装不限，提前 30 分钟入场；中票性价比最高。',
+    cover: 'blue', maxTeam: 3,
+  },
+  {
+    id: 'a10', title: '庭院话剧《雷雨》', type: '演出', emoji: '🎭',
+    venue: '南强街 88 号剧场', address: '五华区南强街 88 号庭院',
+    slots: ['sat_eve'], price: 80, indoor: true,
+    distanceKm: 2, popularity: 70, tags: ['话剧', '小剧场', '老宅'],
+    description: '在百年老宅天井里看《雷雨》，演员就在两米外，雨夜氛围感直接翻倍。',
+    transport: '地铁 3 号线东风广场站步行 10 分钟', tips: '庭院座位少需提前订；演出中不能拍照。',
+    cover: 'purple', maxTeam: 3,
+  },
+  // ── 徒步 3 ──
+  {
+    id: 'a11', title: '西山龙门徒步 · 俯瞰滇池', type: '徒步', emoji: '⛰️',
+    venue: '西山森林公园', address: '西山区西山国家级风景名胜区',
+    slots: ['sat_am', 'sun_am'], price: 30, indoor: false,
+    distanceKm: 15, popularity: 92, tags: ['观景', '徒步', '滇池'],
+    description: '从猫猫箓一路爬到龙门石窟，悬空栈道上看整个滇池和昆明坝子，晴天能见度爆表。',
+    transport: '地铁 3 号线西山公园站转景区摆渡车', tips: '登山鞋必备；带够水，山顶物价翻倍。',
+    cover: 'green', maxTeam: 6,
+  },
+  {
+    id: 'a12', title: '长虫山日落徒步线', type: '徒步', emoji: '🌅',
+    venue: '长虫山生态公园', address: '五华区红云街道长虫山',
+    slots: ['sun_pm', 'sun_eve'], price: 0, indoor: false,
+    distanceKm: 8, popularity: 74, tags: ['免费', '日落', '轻度'],
+    description: '昆明人自己的城市阳台，步道平缓 2 小时登顶，正好赶上日落时分俯瞰全城灯火。',
+    transport: '公交 84 路至岗头山站步行上山口', tips: '下山无路灯务必带头灯或手电；风大带外套。',
+    cover: 'orange', maxTeam: 6,
+  },
+  {
+    id: 'a13', title: '海埂大坝骑行 · 观鸥半日', type: '徒步', emoji: '🚴',
+    venue: '滇池海埂大坝', address: '西山区海埂大坝',
+    slots: ['sat_am', 'sat_pm', 'sun_am', 'sun_pm'], price: 20, indoor: false,
+    distanceKm: 12, popularity: 95, tags: ['骑行', '海鸥', '平缓'],
+    description: '沿滇池骑行 7 公里，冬天红嘴鸥满天天，一路租单车 20 元不限时，湖边草地野餐绝佳。',
+    transport: '地铁 5 号线迎海路站步行 15 分钟', tips: '风大注意保暖；鸥粮 10 元一袋别喂面包。',
+    cover: 'blue', maxTeam: 6,
+  },
+  // ── 桌游 / 咖啡 / 手作 4 ──
+  {
+    id: 'a14', title: '狼人杀 · 剧本杀下午场', type: '桌游', emoji: '🎲',
+    venue: '桌游星球（文化巷店）', address: '五华区文化巷 46 号 2 楼',
+    slots: ['sat_pm', 'sat_eve', 'sun_pm'], price: 40, indoor: true,
+    distanceKm: 1.5, popularity: 80, tags: ['室内', '社交', '雨天'],
+    description: '固定主持人带场，路人局组车，3 小时畅玩，楼下就是文化巷咖啡一条街。',
+    transport: '地铁 3 号线潘家湾站步行 10 分钟', tips: '新手指引 15 分钟即可上手；周末建议提前订座。',
+    cover: 'indigo', maxTeam: 8,
+  },
+  {
+    id: 'a15', title: '手冲咖啡品鉴工作坊', type: '咖啡', emoji: '☕',
+    venue: '上山喝茶（文林街）', address: '五华区文林街文化巷交叉口',
+    slots: ['sat_pm', 'sun_pm'], price: 68, indoor: true,
+    distanceKm: 1.5, popularity: 66, tags: ['云南豆', '慢生活', '小班'],
+    description: '孟连、保山、普洱三个产区豆子对比杯测，学一套手冲手法，云南咖啡豆直接喝明白。',
+    transport: '地铁 3 号线潘家湾站步行 10 分钟', tips: '小班 8 人需预约；自带杯减 5 元。',
+    cover: 'orange', maxTeam: 4,
+  },
+  {
+    id: 'a16', title: '陶艺手作 · 拉坯体验', type: '手作', emoji: '🏺',
+    venue: '秘境 M60 陶艺工坊', address: '五华区普吉路 60 号 M60 园区 9 栋',
+    slots: ['sat_am', 'sat_pm', 'sun_am', 'sun_pm'], price: 88, indoor: true,
+    distanceKm: 6, popularity: 72, tags: ['DIY', '解压', '出片'],
+    description: '2 小时从揉泥到拉坯，成品一个月后烧好邮寄到家，适合情侣和闺蜜一起来做。',
+    transport: '公交 1 路至麻园站', tips: '穿深色衣服，泥浆不好洗；指甲长的建议剪短。',
+    cover: 'teal', maxTeam: 5,
+  },
+  {
+    id: 'a17', title: '斗南花市插花体验课', type: '手作', emoji: '💐',
+    venue: '斗南花市培训教室', address: '呈贡区斗南花卉市场 3 楼',
+    slots: ['sun_am', 'sun_pm'], price: 50, indoor: true,
+    distanceKm: 20, popularity: 68, tags: ['花艺', '亚洲最大花市', '便宜'],
+    description: '先逛亚洲最大鲜花市场，玫瑰 10 元一大把，再上课插一束自己的周末花束带回家。',
+    transport: '地铁 1 号线斗南站直达', tips: '花市晚上 8 点最热闹价格最低；花材费另算约 20。',
+    cover: 'pink', maxTeam: 5,
+  },
+  // ── 运动 3 ──
+  {
+    id: 'a18', title: '大学城飞盘友谊局', type: '运动', emoji: '🥏',
+    venue: '昆明理工大学呈贡校区东侧草坪', address: '呈贡区景明南路 727 号',
+    slots: ['sat_pm', 'sun_pm'], price: 20, indoor: false,
+    distanceKm: 18, popularity: 84, tags: ['新手友好', '社交', '免费水'],
+    description: '每周固定的路人飞盘局，前 30 分钟教学，男女混合 5v5，运动量拉满还认识新朋友。',
+    transport: '地铁 1 号线大学城站骑行 8 分钟', tips: '穿运动鞋，指甲剪短；有防晒和水更好。',
+    cover: 'green', maxTeam: 10,
+  },
+  {
+    id: 'a19', title: '羽毛球双打拼场', type: '运动', emoji: '🏸',
+    venue: '宝海公园羽毛球馆', address: '官渡区日新立交桥旁宝海公园内',
+    slots: ['sat_am', 'sat_eve', 'sun_am'], price: 35, indoor: true,
+    distanceKm: 4, popularity: 62, tags: ['室内', '拼场', '雨天'],
+    description: '木地板标准场地，群内拼场 2 小时 AA，球免费，缺人随时有替补到位。',
+    transport: '地铁 2 号线日新路站步行 8 分钟', tips: '球拍可租 15 元；穿室内运动鞋。',
+    cover: 'blue', maxTeam: 4,
+  },
+  {
+    id: 'a20', title: '郊野公园攀岩初体验', type: '运动', emoji: '🧗',
+    venue: '郊野公园攀岩基地', address: '五华区团结乡郊野公园',
+    slots: ['sat_am', 'sat_pm', 'sun_am', 'sun_pm'], price: 98, indoor: false,
+    distanceKm: 14, popularity: 60, tags: ['刺激', '新手教学', '森林'],
+    description: '天然岩壁 5 条难度线路，教练一对一保护，登顶那一刻的成就感无可替代。',
+    transport: '公交 C61 路至郊野公园站', tips: '长裤防刮；装备全含，只需带水和防晒。',
+    cover: 'red', maxTeam: 4,
+  },
+]
+
+export const activityById = (id: string) => ACTIVITIES.find((a) => a.id === id)
