@@ -190,7 +190,7 @@ npm run preview      # 本地预览构建产物
 
 更新线上 = 本地 `npm run build` 后，通过 `deploy-api.ps1` 将 `dist/` 推送到 `gh-pages` 分支（走 GitHub Contents API），约 1 分钟后自动生效，**域名始终为** `https://zzzgl-star.github.io/weekend-city-guide/`。
 
-## 10. 演示动线（面试/答辩可按此走查）
+## 10. 演示动线
 
 1. **首页** → 看周末天气卡与"你的周末行程"（上午/下午/晚间自动排程），注意每条推荐都带理由
 2. **探索** → 点"室内 + 免费"筛选，切换"价格最低"排序
@@ -221,6 +221,5 @@ npm run preview      # 本地预览构建产物
 
 ---
 
-👤 作者：Zzzgl-star（昆明理工大学 · 数据科学与大数据技术）
-📄 License: MIT
+作者：王明珠（昆明理工大学 · 数据科学与大数据技术）
 
