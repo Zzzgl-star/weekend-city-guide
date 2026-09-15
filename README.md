@@ -190,7 +190,7 @@ npm run preview      # 本地预览构建产物
 
 更新线上 = 本地 `npm run build` 后，通过 `deploy-api.ps1` 将 `dist/` 推送到 `gh-pages` 分支（走 GitHub Contents API），约 1 分钟后自动生效，**域名始终为** `https://zzzgl-star.github.io/weekend-city-guide/`。
 
-## 10. 演示动线
+## 10. 功能演示
 
 1. **首页** → 看周末天气卡与"你的周末行程"（上午/下午/晚间自动排程），注意每条推荐都带理由
 2. **探索** → 点"室内 + 免费"筛选，切换"价格最低"排序
@@ -209,7 +209,7 @@ npm run preview      # 本地预览构建产物
 | zustand + persist | 轻量状态管理，localStorage 持久化开箱即用 |
 | HashRouter | 静态托管下刷新 404 免配置，任何 Pages/CDN 均可用 |
 | Open-Meteo | 免费无 Key 天气 API + 前端降级兜底 |
-| html2canvas | 纯前端生成分享海报，无需后端 |
+| html2canvas | 前端生成分享海报，无需后端 |
 | 纯前端 + mock 数据 | 零后端成本、部署极简，后续可平滑升级 Supabase |
 
 ## 12. Roadmap
